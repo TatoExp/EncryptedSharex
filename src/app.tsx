@@ -18,6 +18,7 @@ const NAME_LENGTH = parseInt(process.env.NAME_LENGTH || "32")/2;
 //Embed related stuff
 const EMBED_TITLE = process.env.EMBED_TITLE || "Embed Title Not Set";
 const EMBED_DESC = process.env.EMBED_DESC || "Embed Desc Not Set";
+const EMBED_COLOR = process.env.EMBED_COLOR || "#FF0000"
 
 const makeImgDir = async () => {
 	if(!fs.existsSync("images"))
@@ -85,9 +86,11 @@ const makeImgDir = async () => {
 			<!DOCTYPE html>
 			<html>
 				<head>
+					<meta property="twitter:image" content="/image/${req.params.name}/${req.params.key}"/>
 					<meta property="og:image" content="/image/${req.params.name}/${req.params.key}"/>
 					<meta property="og:description" content="${EMBED_DESC}"/>
 					<meta property="og:title" content="${EMBED_TITLE}"/>
+					<meta name='theme-color' content='${EMBED_COLOR}'>
 				</head>
 				<body>
 					<img src="/image/${req.params.name}/${req.params.key}" />
