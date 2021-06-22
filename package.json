@@ -1,0 +1,25 @@
+{
+  "name": "encryptedsharex",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/app.js",
+  "scripts": {
+    "prestart": "tsc --build",
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.12",
+    "@types/express-fileupload": "^1.1.6",
+    "@types/node": "^15.12.2"
+  },
+  "dependencies": {
+    "crypto": "^1.0.1",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-fileupload": "^1.2.1"
+  }
+}
