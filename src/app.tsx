@@ -7,11 +7,17 @@ import dotenv from "dotenv";
 dotenv.config()
 
 
+//Express related stuff
 const PORT = parseInt(process.env.PORT || "3000");
 const HOSTNAME = process.env.HOSTNAME || "127.0.0.1";
 const UPLOAD_KEY = process.env.UPLOAD_KEY || "test_pass";
 
+//Key related stuff
 const NAME_LENGTH = parseInt(process.env.NAME_LENGTH || "32")/2;
+
+//Embed related stuff
+const EMBED_TITLE = process.env.EMBED_TITLE || "Embed Title Not Set";
+const EMBED_DESC = process.env.EMBED_DESC || "Embed Desc Not Set";
 
 const makeImgDir = async () => {
 	if(!fs.existsSync("images"))
@@ -73,5 +79,23 @@ const makeImgDir = async () => {
 		res.status(200).send(decrypt)
 	})
 	
+	app.get("/embed/:name/:key", async (req, res) => {
+		return res.status(200).send(
+			`
+			<!DOCTYPE html>
+			<html>
+				<head>
+					<meta property="og:image" content="/${req.params.name}/${req.params.key}"/>
+					<meta property="og:description" content="${EMBED_DESC}"/>
+					<meta property="og:title" content="${EMBED_TITLE}"/>
+				</head>
+				<body>
+					<img src="/${req.params.name}/${req.params.key}" />
+				</body>
+			</html>
+			`
+		)
+	})
+
 	app.listen(PORT, HOSTNAME)
 })()
