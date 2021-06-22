@@ -85,12 +85,12 @@ const makeImgDir = async () => {
 			<!DOCTYPE html>
 			<html>
 				<head>
-					<meta property="og:image" content="/${req.params.name}/${req.params.key}"/>
+					<meta property="og:image" content="/image/${req.params.name}/${req.params.key}"/>
 					<meta property="og:description" content="${EMBED_DESC}"/>
 					<meta property="og:title" content="${EMBED_TITLE}"/>
 				</head>
 				<body>
-					<img src="/${req.params.name}/${req.params.key}" />
+					<img src="/image/${req.params.name}/${req.params.key}" />
 				</body>
 			</html>
 			`
