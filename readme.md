@@ -1,4 +1,6 @@
 # 🔒 Encrypted ShareX
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/f5248b37f6e947a4a19520b03f738010)](https://www.codacy.com/gh/TatoExp/EncryptedSharex/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=TatoExp/EncryptedSharex&amp;utm_campaign=Badge_Grade)
+
 Encrypted ShareX is a self-hosted node.js express-based file uploader designed for ShareX (A screenshot and file upload tool).
 It utilises AES-256 encryption to encrypt files, and returns a randomised image name, and key to decrypt the image with. (Similar to https://mega.nz).
 
