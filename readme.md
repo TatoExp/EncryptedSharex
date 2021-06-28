@@ -8,7 +8,7 @@ DISCLAIMER: I am not responsible if there are issues with this project.
 This project will not be secure if it's used on hosting that other people can access. And is only as secure as the server it's installed on.
 
 ## 💻 Setup
-This project is made in TypeScript using node.js 14.7 LTS, but may work with older versions. 
+This project is made in TypeScript using Node.js 14.7 LTS, but may work with older versions. 
 
 ### Environment Variables
 This project is configured with environment variables, and supports .env files.
