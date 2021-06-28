@@ -22,8 +22,8 @@ const EMBED_COLOR = process.env.EMBED_COLOR || "#FF0000";
 
 const makeImgDir = async () => {
 	if(!fs.existsSync("images"))
-		await fs.promises.mkdir("images")
-}
+		await fs.promises.mkdir("images");
+};
 
 (async () => {
 	const app = express();
@@ -66,7 +66,7 @@ const makeImgDir = async () => {
 			name,
 			key: `${key}:${iv}`
 		});
-	})
+	});
 
 	app.get("/image/:name/:key", async (req, res) => {
 		const data = await fs.promises.readFile(`images/${req.params.name}`);
@@ -79,8 +79,8 @@ const makeImgDir = async () => {
 		//TODO: Add some kind of processing for file type? Or store it in some way? maybe prepend the file before its encrypted?
 		res.setHeader("content-type", "image/jpeg");
 		res.status(200).send(decrypt);
-	})
-	
+	});
+
 	app.get("/embed/:name/:key", async (req, res) => {
 		return res.status(200).send(
 			`
@@ -98,8 +98,8 @@ const makeImgDir = async () => {
 				</body>
 			</html>
 			`
-		)
+		);
 	});
 
 	app.listen(PORT, HOSTNAME);
-})()
+})();
